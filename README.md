@@ -9,7 +9,7 @@
 
 ## 👥 GROUP 3 MEMBERS
 
-| # | Name | Student ID |
+| # | Name | RegNo |
 |---|------|------------|
 | 1 | SENTONGO JOSEPH MARK | 2024/BSE/175/PS |
 | 2 | MUTASIMU ALI | 2024/BSE/121/PS |
