@@ -7,18 +7,18 @@
 
 ---
 
-## 👥 GROUP 10 MEMBERS
+## 👥 GROUP 3 MEMBERS
 
-| # | Name | Student ID | Role |
-|---|------|------------|------|
-| 1 | SENTONGO JOSEPH MARK | 2024/BSE/121/PS | Team Lead |
-| 2 | MUTASIMU ALI | 2024/BSE/079/PS | Developer |
-| 3 | KATO HAMUZAH KIZITO | 2024/BSE/066/PS | Developer |
-| 4 | IMAMUT JULIANA | 2024/BSE/009/PS | Developer |
-| 5 | AINEMBABAZI FELIX | 2024/BSE/138/PS | Tester |
-| 6 | NALUKWAGO HADIJAH | 2024/BSE/110/PS | Documentation |
-| 7 | MUHUMUZA ISAIAH | 2023/BSE/159/PS | GitHub Manager |
-| 8 | AKANTORANA TRUST | [ID] | Quality Assurance |
+| # | Name | Student ID |
+|---|------|------------|
+| 1 | SENTONGO JOSEPH MARK | 2024/BSE/175/PS |
+| 2 | MUTASIMU ALI | 2024/BSE/121/PS |
+| 3 | KATO HAMUZAH KIZITO | 2024/BSE/079/PS |
+| 4 | IMAMUT JULIANA | 2024/BSE/066/PS | 
+| 5 | AINEMBABAZI FELIX | 2024/BSE/009/PS | 
+| 6 | NALUKWAGO HADIJAH | 2024/BSE/138/PS |
+| 7 | MUHUMUZA ISAIAH | 2024/BSE/110/PS | 
+| 8 | AKANTORANA TRUST | 2023/BSE/159/PS |
 
 ---
 
@@ -28,8 +28,8 @@
 |------|-------|--------|----------|
 | Week 4 | Goal-Question-Metric (GQM) | ✅ Completed | Feb 2026 |
 | Week 5 | Empirical Investigation | ✅ Completed | Feb 2026 |
-| Week 5b | Software Size | 🔄 In Progress | March 2026 |
-| Week 6 | Structural Complexity | ⏳ Upcoming | March 2026 |
+| Week 6 | Software Size | 🔄 In Progress | March 2026 |
+| Week 7 | Structural Complexity | ⏳ Upcoming | March 2026 |
 
 ---
 
@@ -62,10 +62,20 @@ We tested two algorithms on the **same data** to see which performs better for f
 **Algorithm A: FOR Loop**
 ```java
 for(int i = 0; i < transactions.size(); i++) {
- //code
-int i = 0;
+ Transaction t = transactions.get(i);
+comparisons++;
+ if(t.amount > threshold && t.location.equals("Foreign")) {
+fraud.add(t);
+ }
+}
+**Algorithm A: WHILE Loop**
 while(i < transactions.size()) {
-//code
+Transaction t = transactions.get(i);
+comparisons++;
+if(t.amount > threshold && t.location.equals("Foreign")) {
+ fraud.add(t);
+}
+ i++;
 }
 
 
