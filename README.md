@@ -69,6 +69,7 @@ fraud.add(t);
  }
 }
 **Algorithm A: WHILE Loop**
+```java
 while(i < transactions.size()) {
 Transaction t = transactions.get(i);
 comparisons++;
