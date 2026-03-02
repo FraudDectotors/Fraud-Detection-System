@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.*;
 import java.text.DecimalFormat;
 /**
- * WEEK 5: EMPIRICAL INVESTIGATION
+ * EMPIRICAL INVESTIGATION
  * A/B Test of Two Algorithms for Fraud Detection
  * RAW DATA and VALIDITY proof!
  */
-public class Invesigation {
+public class Investigation {
         public static class Transaction {
             String id;
             double amount;
@@ -301,3 +301,4 @@ public class Invesigation {
         }
 
 }
+
