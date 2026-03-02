@@ -21,31 +21,94 @@
 ---
 ## 📏 MEASUREMENT THEORY FOUNDATION
 
-### 1. Entity Under Measurement
-**Fraud Detection Algorithm Execution** - The process of scanning transactions for suspicious activity.
+### What is Measurement Theory?
+Measurement theory provides the scientific basis for how we measure things. It ensures our metrics are meaningful, valid, and reliable.
 
-### 2. Attributes Measured
-- **Performance**: Execution time in milliseconds
-- **Throughput**: Transactions processed per second
-- **Accuracy**: Number of fraud cases correctly identified
+---
 
-### 3. Measurement Scales
-| Metric | Scale Type | Justification |
-|--------|------------|---------------|
-| Execution Time | Ratio | True zero exists (0ms means no time) |
-| Transactions/sec | Ratio | True zero exists (no throughput) |
-| Algorithm Type | Nominal | FOR/WHILE are just categories |
-| Risk Score | Ordinal | Low < Medium < High |
+### 1. ENTITY BEING MEASURED
 
-### 4. Measurement Validity
-- **Face Validity**: Time measurements directly show speed
-- **Reliability**: Multiple runs (10) ensure consistency
-- **Accuracy**: Nanosecond precision from Java's System.nanoTime()
+**Entity:** Fraud Detection Algorithm Execution
 
-### 5. Potential Errors
-- **Random Variation**: Normal fluctuations in execution time
-- **Systematic Bias**: JVM warm-up affects early runs
-- **Mitigation**: Multiple runs and averaging
+This refers to the actual process of running our Java code to scan banking transactions and identify potential fraud. The entity is the software system itself.
+
+---
+
+### 2. ATTRIBUTES MEASURED
+
+| Attribute | What It Measures | Why It Matters |
+|-----------|------------------|----------------|
+| **Execution Time** | How fast the algorithm runs | Determines if we can detect fraud in real-time |
+| **Throughput** | Transactions processed per second | Shows system capacity during peak banking hours |
+| **Code Size** | Lines of code (LOC) | Indicates system complexity and development effort |
+| **Comparisons** | Number of checks performed | Shows algorithm efficiency |
+
+---
+
+### 3. MEASUREMENT SCALES (The Most Important Part!)
+
+In measurement theory, there are 4 scales. Here's how they apply to OUR system:
+
+#### 📊 NOMINAL SCALE
+**Definition:** Categories with no order or rank
+**In Our System:**
+- Algorithm type: FOR loop or WHILE loop
+- Transaction location: "Local" or "Foreign"
+- User type: "new" or "old"
+
+#### 📊 ORDINAL SCALE
+**Definition:** Categories with order but unequal gaps
+**In Our System:**
+- Risk level: Low < Medium < High
+- Priority: Normal < Urgent < Critical
+
+#### 📊 INTERVAL SCALE
+**Definition:** Equal intervals, no true zero
+**In Our System:**
+- Time of day (hour): 1am to 2am = same as 2am to 3am
+- Date of transaction
+
+#### 📊 RATIO SCALE ⭐ (Most Important for Us!)
+**Definition:** Has true zero, equal intervals
+**In Our System:**
+- **✅ Execution Time (milliseconds)** - 0ms means NO time
+- **✅ Transactions Per Second** - 0 TPS means NO throughput
+- **✅ Lines of Code** - 0 LOC means NO code
+- **✅ Number of Comparisons** - 0 means NO comparisons
+- **✅ Fraud Cases Found** - 0 means NO fraud detected
+
+**Why Ratio Scale Matters:** Because we have a true zero, we can say "Algorithm A is twice as fast as Algorithm B" (50ms vs 25ms).
+
+---
+
+### 4. VALIDITY OF MEASUREMENT
+
+Validity asks: "Are we measuring what we think we're measuring?"
+
+#### ✅ FACE VALIDITY
+**Question:** Does it look right?
+**Our Evidence:** Execution time in milliseconds directly shows speed. If one algorithm takes 3.5ms and another takes 3.8ms, the faster one is obvious.
+
+#### ✅ CONTENT VALIDITY
+**Question:** Does it cover everything?
+**Our Evidence:** We test ALL 10,000 transactions, not just a sample. Every transaction contributes to the measurement.
+
+#### ✅ CONSTRUCT VALIDITY
+**Question:** Does it measure the right concept?
+**Our Evidence:** Time measures speed, comparisons measure efficiency, fraud count measures accuracy. Each metric measures ONE thing clearly.
+
+#### ✅ CRITERION VALIDITY
+**Question:** Does it match real-world expectations?
+**Our Evidence:** Our measured times (3-4ms for 10,000 transactions) match typical Java performance benchmarks.
+
+---
+
+### 5. RELIABILITY OF MEASUREMENT
+
+Reliability asks: "Are our measurements consistent?"
+
+#### Test-Retest Reliability
+We run the SAME algorithm on the SAME data 10 times:
 
 ## 📅 PROJECT PROGRESS
 
