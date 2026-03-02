@@ -8,7 +8,7 @@ import java.text.DecimalFormat;
  * A/B Test of Two Algorithms for Fraud Detection
  * RAW DATA and VALIDITY proof!
  */
-public class Investigation {
+public class FraudDetection{
         public static class Transaction {
             String id;
             double amount;
@@ -301,4 +301,5 @@ public class Investigation {
         }
 
 }
+
 
