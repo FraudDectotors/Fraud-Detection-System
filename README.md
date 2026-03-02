@@ -21,8 +21,35 @@
 | 8 | AKANTORANA TRUST | 2023/BSE/159/PS |
 
 ---
+## 📏 MEASUREMENT THEORY FOUNDATION
 
-## 📅 PROJECT PROGRESS (As of March 1, 2026)
+### 1. Entity Under Measurement
+**Fraud Detection Algorithm Execution** - The process of scanning transactions for suspicious activity.
+
+### 2. Attributes Measured
+- **Performance**: Execution time in milliseconds
+- **Throughput**: Transactions processed per second
+- **Accuracy**: Number of fraud cases correctly identified
+
+### 3. Measurement Scales
+| Metric | Scale Type | Justification |
+|--------|------------|---------------|
+| Execution Time | Ratio | True zero exists (0ms means no time) |
+| Transactions/sec | Ratio | True zero exists (no throughput) |
+| Algorithm Type | Nominal | FOR/WHILE are just categories |
+| Risk Score | Ordinal | Low < Medium < High |
+
+### 4. Measurement Validity
+- **Face Validity**: Time measurements directly show speed
+- **Reliability**: Multiple runs (10) ensure consistency
+- **Accuracy**: Nanosecond precision from Java's System.nanoTime()
+
+### 5. Potential Errors
+- **Random Variation**: Normal fluctuations in execution time
+- **Systematic Bias**: JVM warm-up affects early runs
+- **Mitigation**: Multiple runs and averaging
+
+## 📅 PROJECT PROGRESS
 
 | Week | Topic | Status | Due Date |
 |------|-------|--------|----------|
