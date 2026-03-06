@@ -110,17 +110,6 @@ Reliability asks: "Are our measurements consistent?"
 #### Test-Retest Reliability
 We run the SAME algorithm on the SAME data 10 times:
 
-## 📅 PROJECT PROGRESS
-
-| Week | Topic | Status | Due Date |
-|------|-------|--------|----------|
-| Week 4 | Goal-Question-Metric (GQM) | ✅ Completed | Feb 2026 |
-| Week 5 | Empirical Investigation | ✅ Completed | Feb 2026 |
-| Week 6 | Software Size | 🔄 In Progress | March 2026 |
-| Week 7 | Structural Complexity | ⏳ Upcoming | March 2026 |
-
----
-
 ## 🎯 WEEK 3: GOAL-QUESTION-METRIC (Completed)
 
 ### Goal
