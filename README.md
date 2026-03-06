@@ -121,7 +121,7 @@ We run the SAME algorithm on the SAME data 10 times:
 
 ---
 
-## 🎯 WEEK 4: GOAL-QUESTION-METRIC (Completed)
+## 🎯 WEEK 3: GOAL-QUESTION-METRIC (Completed)
 
 ### Goal
 > Detect fraudulent transactions in less than 100 milliseconds to prevent real-time financial losses in the banking sector.
@@ -141,32 +141,4 @@ We run the SAME algorithm on the SAME data 10 times:
 | **M3:** Speedup factor | ratio | >1.0 |
 
 ---
-
-## 🔬 WEEK 5: EMPIRICAL INVESTIGATION (Completed - Feb 2026)
-
-### What We Did
-We tested two algorithms on the **same data** to see which performs better for fraud detection:
-
-**Algorithm A: FOR Loop**
-```java
-for(int i = 0; i < transactions.size(); i++) {
- Transaction t = transactions.get(i);
-comparisons++;
- if(t.amount > threshold && t.location.equals("Foreign")) {
-fraud.add(t);
- }
-}
-```
-**Algorithm B: WHILE Loop**
-```java
-while(i < transactions.size()) {
-Transaction t = transactions.get(i);
-comparisons++;
-if(t.amount > threshold && t.location.equals("Foreign")) {
- fraud.add(t);
-}
- i++;
-}
-```
-
 
