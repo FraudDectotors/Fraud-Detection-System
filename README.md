@@ -1,133 +1,99 @@
-# Fraud Detection System - Software Metrics Project
+# Fraud Detection System – Software Metrics Project
 
-## Course: SWE 2204 - Software Metrics
-## Instructor: Dr. Richard Kimera
-
----
-
-## 👥 GROUP 3 MEMBERS
-
-| # | Name | RegNo |
-|---|------|------------|
-| 1 | SENTONGO JOSEPH MARK | 2024/BSE/175/PS |
-| 2 | MUTASIMU ALI | 2024/BSE/121/PS |
-| 3 | KATO HAMUZAH KIZITO | 2024/BSE/079/PS |
-| 4 | IMAMUT JULIANA | 2024/BSE/066/PS | 
-| 5 | AINEMBABAZI FELIX | 2024/BSE/009/PS | 
-| 6 | NALUKWAGO HADIJAH | 2024/BSE/138/PS |
-| 7 | MUHUMUZA ISAIAH | 2024/BSE/110/PS | 
-| 8 | AKANTORANA TRUST | 2023/BSE/159/PS |
-
----
-## 📏 MEASUREMENT THEORY FOUNDATION
-
-### What is Measurement Theory?
-Measurement theory provides the scientific basis for how we measure things. It ensures our metrics are meaningful, valid, and reliable.
+## Course: SWE 2204 – Software Metrics  
+## Instructor: Dr. Richard Kimera  
 
 ---
 
-### 1. ENTITY BEING MEASURED
+## 👥 Group 3 Members
 
-**Entity:** Fraud Detection Algorithm Execution
+| #  | Name                      | RegNo           |
+|----|---------------------------|-----------------|
+| 1  | SENTONGO JOSEPH MARK      | 2024/BSE/175/PS |
+| 2  | MUTASIMU ALI              | 2024/BSE/121/PS |
+| 3  | KATO HAMUZAH KIZITO       | 2024/BSE/079/PS |
+| 4  | IMAMUT JULIANA            | 2024/BSE/066/PS |
+| 5  | AINEMBABAZI FELIX         | 2024/BSE/009/PS |
+| 6  | NALUKWAGO KHADIJAH        | 2024/BSE/138/PS |
+| 7  | MUHUMUZA ISAIAH           | 2024/BSE/110/PS |
+| 8  | AKANTORANA TRUST          | 2023/BSE/159/PS |
 
-This refers to the actual process of running our Java code to scan banking transactions and identify potential fraud. The entity is the software system itself.
 
----
+##  Project Overview
 
-### 2. ATTRIBUTES MEASURED
+This project is a **fraud‑detection system written in Java** that we intedn to use for our coursework.
+The main idea is to:
 
-| Attribute | What It Measures | Why It Matters |
-|-----------|------------------|----------------|
-| **Execution Time** | How fast the algorithm runs | Determines if we can detect fraud in real-time |
-| **Throughput** | Transactions processed per second | Shows system capacity during peak banking hours |
-| **Code Size** | Lines of code (LOC) | Indicates system complexity and development effort |
-| **Comparisons** | Number of checks performed | Shows algorithm efficiency |
+- Generate realistic bank‑style transactions (with ID, amount in UGX, and location).
+- Apply different fraud‑detection strategies to detect suspicious transactions.
+- Measure performance and behavior using metrics such as **execution time** and **number of fraud cases found**.
 
----
+Instead of comparing two identical loops, our current version uses **two different fraud‑detection strategies**:
+- A **rule‑based** algorithm that flags high‑amount foreign transactions.
+- A **statistical** algorithm that flags transactions that are too far from the average amount (z‑score based).
 
-### 3. MEASUREMENT SCALES (The Most Important Part!)
+##  Code Structure
 
-In measurement theory, there are 4 scales. Here's how they apply to OUR system:
+The project is organized as a **multi‑file, modular Java project** with clear packages:
 
-#### 📊 NOMINAL SCALE
-**Definition:** Categories with no order or rank
-**In Our System:**
-- Algorithm type: FOR loop or WHILE loop
-- Transaction location: "Local" or "Foreign"
-- User type: "new" or "old"
+FraudDetectionSystem/
+├── out/ ← compiled .class files
+├── src/
+│ ├── fraud/
+│ │ ├── Transaction.java
+│ │ ├── DetectionResult.java
+│ │ └── algo/
+│ │ ├── Algorithm.java
+│ │ ├── SimpleRuleAlgorithm.java
+│ │ └── StatisticalAlgorithm.java
+│ ├── experiment/
+│ │ ├── Experiment.java
+│ │ ├── ExperimentReporter.java
+│ │ └── ConsoleReporter.java
+│ ├── metrics/
+│ │ └── Metric.java
+│ └── main/
+│ ├── Main.java
+│ └── TransactionGenerator.java
+└── metrics.md ← weekly metrics documentation
 
-#### 📊 ORDINAL SCALE
-**Definition:** Categories with order but unequal gaps
-**In Our System:**
-- Risk level: Low < Medium < High
-- Priority: Normal < Urgent < Critical
+text
 
-#### 📊 INTERVAL SCALE
-**Definition:** Equal intervals, no true zero
-**In Our System:**
-- Time of day (hour): 1am to 2am = same as 2am to 3am
-- Date of transaction
+- fraud: contains the transaction model and the fraud‑detection algorithms.
+- experiment: runs multiple experiments, collects results, and prints them.
+- metrics: defines the Metric<T> interface so we can plug in new metrics without changing the core logic.
+- main: the entry point (Main) and tools for generating test data.
 
-#### 📊 RATIO SCALE ⭐ (Most Important for Us!)
-**Definition:** Has true zero, equal intervals
-**In Our System:**
-- **✅ Execution Time (milliseconds)** - 0ms means NO time
-- **✅ Transactions Per Second** - 0 TPS means NO throughput
-- **✅ Lines of Code** - 0 LOC means NO code
-- **✅ Number of Comparisons** - 0 means NO comparisons
-- **✅ Fraud Cases Found** - 0 means NO fraud detected
+##  How the System Works
 
-**Why Ratio Scale Matters:** Because we have a true zero, we can say "Algorithm A is twice as fast as Algorithm B" (50ms vs 25ms).
+1. The program generates a list of synthetic transactions with:
+   - Transaction ID,
+   - Amount in UGX,
+   - Location (Local or Foreign).
 
----
+2. For each transaction set, the system runs:
+   -SimpleRuleAlgorithm: flags transactions that are both **large (above a threshold)** and **Foreign**.
+   -StatisticalAlgorithm: computes the **average amount** and **standard deviation** of all transactions, then flags transactions that are significantly above the average (z‑score based).
 
-### 4. VALIDITY OF MEASUREMENT
+3. An Experiment class:
+   - Runs both algorithms multiple times on the same transaction data.
+   - Measures how long each one takes (in milliseconds).
+   - Counts how many transactions are flagged as fraud.
 
-Validity asks: "Are we measuring what we think we're measuring?"
+4. A ConsoleReporter prints the results, typically showing:
+   - The algorithm name,
+   - Execution time,
+   - Number of fraud cases detected,
+   - A comparison between strategies.
 
-#### ✅ FACE VALIDITY
-**Question:** Does it look right?
-**Our Evidence:** Execution time in milliseconds directly shows speed. If one algorithm takes 3.5ms and another takes 3.8ms, the faster one is obvious.
+This setup allows us to see how the two fraud‑detection strategies behave in terms of speed and sensitivity.
 
-#### ✅ CONTENT VALIDITY
-**Question:** Does it cover everything?
-**Our Evidence:** We test ALL 10,000 transactions, not just a sample. Every transaction contributes to the measurement.
+##  How to Compile and Run
 
-#### ✅ CONSTRUCT VALIDITY
-**Question:** Does it measure the right concept?
-**Our Evidence:** Time measures speed, comparisons measure efficiency, fraud count measures accuracy. Each metric measures ONE thing clearly.
+From the **project root** folder (`FraudDetectionSystem`):
 
-#### ✅ CRITERION VALIDITY
-**Question:** Does it match real-world expectations?
-**Our Evidence:** Our measured times (3-4ms for 10,000 transactions) match typical Java performance benchmarks.
-
----
-
-### 5. RELIABILITY OF MEASUREMENT
-
-Reliability asks: "Are our measurements consistent?"
-
-#### Test-Retest Reliability
-We run the SAME algorithm on the SAME data 10 times:
-
-## 🎯 WEEK 3: GOAL-QUESTION-METRIC (Completed)
-
-### Goal
-> Detect fraudulent transactions in less than 100 milliseconds to prevent real-time financial losses in the banking sector.
-
-### Questions We Asked
-| Question | Why It Matters |
-|----------|----------------|
-| **Q1:** Which algorithm detects fraud faster? (FOR vs WHILE loop) | Banks process millions of transactions daily |
-| **Q2:** How many transactions can we process per second? | Must handle peak banking hours (10,000+ TPS) |
-| **Q3:** Does performance drop when data size increases? | System must scale with bank growth |
-
-### Metrics We Defined
-| Metric | Unit | Target |
-|--------|------|--------|
-| **M1:** Execution time | milliseconds | <100ms |
-| **M2:** Transactions per second | TPS | >10,000 |
-| **M3:** Speedup factor | ratio | >1.0 |
-
----
-
+```bash
+cd C:\FraudDetectionSystem
+mkdir out
+javac -d out src\**\*.java
+java -cp out main.Main
