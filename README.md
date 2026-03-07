@@ -36,26 +36,31 @@ Instead of comparing two identical loops, our current version uses **two differe
 
 The project is organized as a **multi‑file, modular Java project** with clear packages:
 
-FraudDetectionSystem/
-├── out/ ← compiled .class files
-├── src/
-│ ├── fraud/
-│ │ ├── Transaction.java
-│ │ ├── DetectionResult.java
-│ │ └── algo/
-│ │ ├── Algorithm.java
-│ │ ├── SimpleRuleAlgorithm.java
-│ │ └── StatisticalAlgorithm.java
-│ ├── experiment/
-│ │ ├── Experiment.java
-│ │ ├── ExperimentReporter.java
-│ │ └── ConsoleReporter.java
-│ ├── metrics/
-│ │ └── Metric.java
-│ └── main/
-│ ├── Main.java
-│ └── TransactionGenerator.java
-└── metrics.md ← weekly metrics documentation
+## Project Structure
+
+- FraudDetectionSystem
+  - out
+    - compiled class files
+  - src
+    - fraud
+      - Transaction.java
+      - DetectionResult.java
+      - algo
+        - Algorithm.java
+        - SimpleRuleAlgorithm.java
+        - StatisticalAlgorithm.java
+    - experiment
+      - Experiment.java
+      - ExperimentReporter.java
+      - ConsoleReporter.java
+    - metrics
+      - Metric.java
+    - main
+      - Main.java
+      - TransactionGenerator.java
+  - metrics.md
+    - weekly metrics documentation
+
 
 text
 
