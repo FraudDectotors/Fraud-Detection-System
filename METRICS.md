@@ -142,7 +142,7 @@ A summary statistics over all runs is output for each algorithm.
 This allows conclusions such as:
 “Algorithm A is faster on average and more stable” (lower mean and lower stddev).
 
-#### MEASURING SOFTWARE COMPLEXITY AND SIZE.
+## MEASURING SOFTWARE COMPLEXITY AND SIZE.
 
 This section presents comprehensive software quality metrics for the Fraud Detection System, measuring codebase structure, complexity, and performance. Key findings: GOOD maintainability (Cyclomatic=4, Nesting=4≤4), compact codebase (133 LOC), Rule Algorithm wins 7/10 runs (avg 0.36ms faster).
 
@@ -164,12 +164,8 @@ Decision points detected: 3
 Cyclomatic Complexity: 4 (1 + decisions)
 Risk: SIMPLE ✓
 
-text
-
 **Thresholds used**:
 <10 = SIMPLE ✓
-
-text
 
 ## 3. Nesting Depth Analysis
 **Purpose**: Measures control flow indentation. Deep nesting → readability issues.
@@ -177,19 +173,13 @@ text
 Maximum nesting depth: 4
 Status: GOOD ✓ (threshold: ≤4)
 
-text
-
 **Threshold used**:
 ≤4 = GOOD otherwise refactor
-
-text
 
 ## Data Structure Analysis
 **Purpose**: Tracks primitive vs complex data usage.
 
 Arrays detected: 0
-
-text
 
 ## 5. Performance Benchmarking (10 Runs, 1000 Transactions)
 **Purpose**: Statistical comparison of Statistical vs Rule-based fraud detection.
