@@ -144,51 +144,70 @@ This allows conclusions such as:
 
 #### MEASURING SOFTWARE COMPLEXITY AND SIZE.
 
-This report presents comprehensive software quality metrics for the Fraud Detection System, measuring codebase structure, complexity, and performance. Key findings: GOOD maintainability (Cyclomatic=4, Nesting=4≤4), compact codebase (133 LOC), Rule Algorithm wins 7/10 runs (avg 0.36ms faster). 
+This section presents comprehensive software quality metrics for the Fraud Detection System, measuring codebase structure, complexity, and performance. Key findings: GOOD maintainability (Cyclomatic=4, Nesting=4≤4), compact codebase (133 LOC), Rule Algorithm wins 7/10 runs (avg 0.36ms faster).
 
-**Software Size Metrics**
-Purpose: Quantifies codebase scale and documentation quality.
-Metric	Value	Industry Benchmark	Status
-Lines of Code (LOC)	133	<500 (small app) ✓	EXCELLENT - Minimalist design
-Non-Comment LOC (NCLOC)	130	97.7% executable ✓	GOOD - Focused implementation
-Comment LOC (CLOC)	3	2.3% density	FAIR - Add method docs
-Classes	4	Simple domain ✓	OPTIMAL
-Methods	10	2.5/class ✓	WELL-STRUCTURED
-2.	Cyclomatic Complexity Analysis
-Purpose: Measures decision branching (McCabe metric). Higher = harder to test/maintain.
+## Software Size Metrics
+**Purpose**: Quantifies codebase scale and documentation quality.
+
+| Metric                | Value | Status                      |
+|-----------------------|-------|-----------------------------|
+| Lines of Code (LOC)   | 133   | EXCELLENT - Minimalist design |
+| Non-Comment LOC (NCLOC)| 130  | GOOD - Focused implementation |
+| Comment LOC (CLOC)    | 3     | FAIR - Add method docs      |
+| Classes               | 4     | OPTIMAL                     |
+| Methods               | 10    | WELL-STRUCTURED             |
+
+## 2. Cyclomatic Complexity Analysis
+**Purpose**: Measures decision branching (McCabe metric). Higher = harder to test/maintain.
+
 Decision points detected: 3
 Cyclomatic Complexity: 4 (1 + decisions)
 Risk: SIMPLE ✓
-Thresholds used
-<10 = SIMPLE ✓ 
-3.	Nesting Depth Analysis
-Purpose: Measures control flow indentation. Deep nesting → readability issues.
+
+text
+
+**Thresholds used**:
+<10 = SIMPLE ✓
+
+text
+
+## 3. Nesting Depth Analysis
+**Purpose**: Measures control flow indentation. Deep nesting → readability issues.
+
 Maximum nesting depth: 4
 Status: GOOD ✓ (threshold: ≤4)
-Threshold used:
-≤4 = GOOD otherwise refactor.
 
-Data Structure Analysis
-Purpose: Tracks primitive vs complex data usage.
+text
+
+**Threshold used**:
+≤4 = GOOD otherwise refactor
+
+text
+
+## Data Structure Analysis
+**Purpose**: Tracks primitive vs complex data usage.
+
 Arrays detected: 0
-5.	Performance example Benchmarking (10 Runs, 1000 Transactions)
-Purpose: Statistical comparison of Statistical vs Rule-based fraud detection.
-Metric	Stat Algorithm	Rule Algorithm	Winner
-Mean Runtime	0.51ms	0.33ms	Rule
-Std Dev	0.42ms	0.27ms	Rule (stable)
-Wins	3/10	7/10	Rule Superior
-Max Diff	-	1.58ms (Run 6)	
-Statistical Analysis:
-Rule Algorithm: Faster + Lower variance 
-Anomaly: Stat slower in Run 6 (1.74ms) 
-Winner: Rule Algorithm (70% win rate)
-6.	Quality Gate Summary
-✅ LOC: 133 (<500) - Compact
-✅ Cyclomatic: 4 (<10) - Simple
-✅ Nesting: 4 (≤4) - Maintainable
+
+text
+
+## 5. Performance Benchmarking (10 Runs, 1000 Transactions)
+**Purpose**: Statistical comparison of Statistical vs Rule-based fraud detection.
+
+| Metric     | Stat Algorithm | Rule Algorithm | Winner       |
+|------------|----------------|---------------|--------------|
+| Mean Runtime | 0.51ms       | 0.33ms       | Rule         |
+| Std Dev    | 0.42ms         | 0.27ms       | Rule (stable)|
+| Wins       | 3/10          | 7/10         | Rule Superior|
+| Max Diff   | -             | 1.58ms (Run 6)|              |
+
+**Statistical Analysis**:
+- Rule Algorithm: Faster + Lower variance
+- Anomaly: Stat slower in Run 6 (1.74ms)  
+- Winner: Rule Algorithm (70% win rate)
+
+## 6. Quality Gate Summary
+✅ LOC: 133 (<500) - Compact  
+✅ Cyclomatic: 4 (<10) - Simple  
+✅ Nesting: 4 (≤4) - Maintainable  
 ✅ Rule wins 70% - Performance validated
-
-
-
-
-
