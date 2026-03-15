@@ -7,6 +7,11 @@ import fraud.Transaction;
 import fraud.algo.SimpleRuleAlgorithm;
 import fraud.algo.StatisticalAlgorithm;
 import metrics.Metric;
+import metrics.SizeMetric;
+import metrics.CyclomaticMetric; 
+import metrics.NestingMetric;
+import metrics.DataStructureMetric;
+
 import java.util.*;
 
 public class Main {
@@ -47,8 +52,14 @@ public class Main {
         experiment.addParameters(params);
         experiment.addAlgorithm(new SimpleRuleAlgorithm());
         experiment.addAlgorithm(new StatisticalAlgorithm());
+        
 
         experiment.addMetric(new TimeMetric());
+   
+        experiment.addMetric((Metric<DetectionResult>)(Metric<?>)new SizeMetric());
+        experiment.addMetric((Metric<DetectionResult>)(Metric<?>)new CyclomaticMetric());
+        experiment.addMetric((Metric<DetectionResult>)(Metric<?>)new NestingMetric());
+        experiment.addMetric((Metric<DetectionResult>)(Metric<?>)new DataStructureMetric());  
 
         experiment.run(data, numRuns, new ConsoleReporter());
 
