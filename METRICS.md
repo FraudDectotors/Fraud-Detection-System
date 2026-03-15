@@ -188,8 +188,7 @@ Arrays detected: 0
 |------------|----------------|---------------|--------------|
 | Mean Runtime | 0.51ms       | 0.33ms       | Rule         |
 | Std Dev    | 0.42ms         | 0.27ms       | Rule (stable)|
-| Wins       | 3/10          | 7/10         | Rule Superior|
-| Max Diff   | -             | 1.58ms (Run 6)|              |
+| Wins       | 3/10          | 7/10         | Rule Superior||
 
 **Statistical Analysis**:
 - Rule Algorithm: Faster + Lower variance
