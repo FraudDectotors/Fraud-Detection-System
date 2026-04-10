@@ -1,3 +1,4 @@
+package Measures;
 public class ProductAttribute {
     private String reliability;
     private String performance;

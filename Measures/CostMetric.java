@@ -1,4 +1,4 @@
-package quality;
+package Measures;
 
 public class CostMetric {
     private double developmentCost;
