@@ -29,8 +29,8 @@ public class SimpleRuleAlgorithm implements Algorithm {
         long start = System.nanoTime();
 
         for (Transaction t : transactions) {
-            if (t.amount > highAmountThreshold &&
-                foreignLocation.equals(t.location)) {
+            if (t.getAmount() > highAmountThreshold &&
+                foreignLocation.equals(t.getLocation())) {
                 flagged.add(t);
             }
         }
