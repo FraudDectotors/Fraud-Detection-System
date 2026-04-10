@@ -28,20 +28,20 @@ public class StatisticalAlgorithm implements Algorithm {
 
         double sum = 0;
         for (Transaction t : transactions) {
-            sum += t.amount;
+            sum += t.getAmount();
         }
         double mean = sum / transactions.size();
 
         double sumSquared = 0;
         for (Transaction t : transactions) {
-            double diff = t.amount - mean;
+            double diff = t.getAmount() - mean;
             sumSquared += diff * diff;
         }
         double stdDev = Math.sqrt(sumSquared / transactions.size());
 
         List<Transaction> flagged = new ArrayList<>();
         for (Transaction t : transactions) {
-            double zScore = (t.amount - mean) / stdDev;
+            double zScore = (t.getAmount() - mean) / stdDev;
             if (zScore > zThreshold) {
                 flagged.add(t);
             }
