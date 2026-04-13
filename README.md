@@ -21,16 +21,23 @@
 
 ##  Project Overview
 
-This project is a **fraud‑detection system written in Java** that we intedn to use for our coursework.
-The main idea is to:
+This project implements a **fraud-detection system written in Java** for our Software Metrics coursework. The system consists of two main components:
 
-- Generate realistic bank‑style transactions (with ID, amount in UGX, and location).
-- Apply different fraud‑detection strategies to detect suspicious transactions.
-- Measure performance and behavior using metrics such as **execution time** and **number of fraud cases found**.
+### Fraud Detection System
+- Generates realistic bank-style transactions (with ID, amount in UGX, and location).
+- Applies different fraud-detection strategies to detect suspicious transactions.
+- Measures performance and behavior using metrics such as **execution time** and **number of fraud cases found**.
 
-Instead of comparing two identical loops, our current version uses **two different fraud‑detection strategies**:
-- A **rule‑based** algorithm that flags high‑amount foreign transactions.
-- A **statistical** algorithm that flags transactions that are too far from the average amount (z‑score based).
+Instead of comparing two identical loops, our current version uses **two different fraud-detection strategies**:
+- A **rule-based** algorithm that flags high-amount foreign transactions.
+- A **statistical** algorithm that flags transactions that are too far from the average amount (z-score based).
+
+### Software Metrics Analysis
+- Implements various software metrics to analyze the codebase.
+- Includes complexity analysis, cost estimation, quality assessment, and reliability testing.
+- Provides a metrics dashboard for running different analyses on the project itself.
+
+The project demonstrates the application of software measurement principles to both a practical system and its own codebase.
 
 ##  Code Structure
 
@@ -38,36 +45,45 @@ The project is organized as a **multi‑file, modular Java project** with clear 
 
 ## Project Structure
 
-- FraudDetectionSystem
-  - out
-    - compiled class files
-  - src
-    - fraud
-      - Transaction.java
-      - DetectionResult.java
-      - algo
-        - Algorithm.java
-        - SimpleRuleAlgorithm.java
-        - StatisticalAlgorithm.java
-    - experiment
-      - Experiment.java
-      - ExperimentReporter.java
-      - ConsoleReporter.java
-    - metrics
-      - Metric.java
-    - main
-      - Main.java
-      - TransactionGenerator.java
-  - metrics.md
-    - weekly metrics documentation
+The project is organized into the following packages and folders:
 
+- **fraud/**: Contains the transaction model and fraud-detection algorithms.
+  - `Transaction.java`: Represents a bank transaction with ID, amount, and location.
+  - `DetectionResult.java`: Holds the results of fraud detection, including execution time and flagged transactions.
+  - **algo/**: Fraud detection algorithms.
+    - `Algorithm.java`: Interface for fraud detection algorithms.
+    - `SimpleRuleAlgorithm.java`: Rule-based algorithm that flags high-amount foreign transactions.
+    - `StatisticalAlgorithm.java`: Statistical algorithm using z-score to detect outliers.
 
-text
+- **experiment/**: Handles running experiments and reporting results.
+  - `Experiment.java`: Runs multiple experiments comparing algorithms.
+  - `ExperimentReporter.java`: Interface for reporting experiment results.
+  - `ConsoleReporter.java`: Console-based reporter for experiment results.
 
-- fraud: contains the transaction model and the fraud‑detection algorithms.
-- experiment: runs multiple experiments, collects results, and prints them.
-- metrics: defines the Metric<T> interface so we can plug in new metrics without changing the core logic.
-- main: the entry point (Main) and tools for generating test data.
+- **metrics/**: Defines metrics for measuring algorithm performance.
+  - `Metric.java`: Generic interface for metrics.
+  - `CyclomaticMetric.java`: Measures cyclomatic complexity.
+  - `DataStructureMetric.java`: Measures data structure usage.
+  - `MeasurementContext.java`: Context for measurements.
+  - `NestingMetric.java`: Measures nesting levels.
+  - `SizeMetric.java`: Measures code size.
+
+- **main/**: Entry points and utilities.
+  - `Main.java`: Main entry point for the fraud detection system.
+  - `RunMetrics.java`: Dashboard for running software metrics analyses.
+  - `TransactionGenerator.java`: Generates synthetic transaction data.
+
+- **Measures/**: Software metrics analysis tools.
+  - `ComplexityAnalyzer.java`: Analyzes cyclomatic complexity of Java files.
+  - `CostMetric.java`: Models software development costs.
+  - `ProductAttribute.java`: Defines product attributes for metrics.
+  - `QualityAnalyzer.java`: Analyzes software quality using metrics.
+  - `ReliabilityTestMetrics.java`: Measures reliability through testing.
+  - `SoftwareSize.java`: Calculates lines of code and function points.
+  - `TestMetricsAnalyzer.java`: Analyzes test-related metrics.
+
+- `METRICS.md`: Detailed documentation on measurement theory and GQM framework.
+- `README.md`: This file.
 
 ##  How the System Works
 
@@ -92,13 +108,39 @@ text
    - A comparison between strategies.
 
 This setup allows us to see how the two fraud‑detection strategies behave in terms of speed and sensitivity.
+## Software Metrics Analysis
 
+The project includes a comprehensive metrics dashboard that analyzes the codebase using various software metrics:
+
+### Available Metrics
+1. **Software Size Metrics**: Calculates Lines of Code (LOC) and Function Points (FP).
+2. **Complexity Analysis**: Measures cyclomatic complexity of Java classes.
+3. **Test Metrics**: Analyzes test coverage and effectiveness.
+4. **Reliability Metrics**: Assesses system reliability through testing.
+5. **Cost Metrics**: Estimates development and maintenance costs.
+
+### Metrics Dashboard
+The `RunMetrics.java` provides an interactive menu to run different analyses:
+- Select from various metric calculations
+- View results in the console
+- Analyze the fraud detection system itself
+
+This demonstrates practical application of software measurement theory to real code.
+
+For detailed information on the measurement theory, GQM framework, and metrics implementation, see [METRICS.md](METRICS.md).
 ##  How to Compile and Run
 
-From the **project root** folder (`FraudDetectionSystem`):
+From the **project root** folder (`Fraud-Detection-System`):
 
 ```bash
-cd C:\FraudDetectionSystem
 mkdir out
-javac -d out src\**\*.java
+javac -d out */*.java */*/*.java
 java -cp out main.Main
+```
+
+### Running the Metrics Dashboard
+```bash
+java -cp out main.RunMetrics
+```
+
+This will launch an interactive menu where you can select different software metrics analyses to run on the codebase.
