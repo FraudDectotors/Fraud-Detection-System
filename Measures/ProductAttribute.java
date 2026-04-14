@@ -1,4 +1,5 @@
 package Measures;
+
 public class ProductAttribute {
     private String reliability;
     private String performance;
@@ -8,6 +9,10 @@ public class ProductAttribute {
         this.reliability = reliability;
         this.performance = performance;
         this.usability = usability;
+    }
+
+    public ProductAttribute(String[] args) {
+        this(args[0], args[1], args[2]);
     }
 
     public String getReliability() {
