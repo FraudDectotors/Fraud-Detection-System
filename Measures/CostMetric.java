@@ -11,6 +11,14 @@ public class CostMetric {
         this.resourceCost = resourceCost;
     }
 
+    public CostMetric(String[] args) {
+        this(
+            Double.parseDouble(args[0]),
+            Double.parseDouble(args[1]),
+            Double.parseDouble(args[2])
+        );
+    }
+
     public double calculateTotalCost() {
         return developmentCost + maintenanceCost + resourceCost;
     }
