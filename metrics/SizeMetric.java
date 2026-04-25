@@ -2,15 +2,15 @@ package metrics;
 
 import java.io.IOException;
 import java.nio.file.*;
-import java.util.stream.Stream;
 import java.util.List;
+import java.util.stream.Stream;
 
 
 public class SizeMetric implements Metric<String> {
 
     private static boolean hasPrinted = false;
 
-    private final String baseDir = "src/fraud";
+    private final String baseDir = "fraud";
 
     private int loc = 0;
     private int comments = 0;
