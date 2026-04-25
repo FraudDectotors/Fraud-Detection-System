@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CyclomaticMetric implements Metric<String> {
 
-    private final String targetFile = "src/fraud/algo/SimpleRuleAlgorithm.java";
+    private final String targetFile = "fraud/algo/SimpleRuleAlgorithm.java";
 
     @Override
     public String getName() {
