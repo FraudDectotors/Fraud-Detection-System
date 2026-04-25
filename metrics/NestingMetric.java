@@ -2,13 +2,12 @@ package metrics;
 
 import java.io.IOException;
 import java.nio.file.*;
-import java.util.stream.Stream;
 import java.util.List;
 
 
 public class NestingMetric implements Metric<String> {
 
-    private final String baseDir = "src/fraud/algo";
+    private final String baseDir = "fraud/algo";
 
     @Override
     public String getName() {
