@@ -66,6 +66,7 @@ The project is organized into the following packages and folders:
   - `DataStructureMetric.java`: Measures data structure usage.
   - `MeasurementContext.java`: Context for measurements.
   - `NestingMetric.java`: Measures nesting levels.
+  - `OOMetricsSuite.java`: Standalone OO metrics suite for CK-style analysis (DIT, NOC, WMC, CBO, RFC, LCOM).
   - `SizeMetric.java`: Measures code size.
 
 - **main/**: Entry points and utilities.
@@ -118,12 +119,23 @@ The project includes a comprehensive metrics dashboard that analyzes the codebas
 3. **Test Metrics**: Analyzes test coverage and effectiveness.
 4. **Reliability Metrics**: Assesses system reliability through testing.
 5. **Cost Metrics**: Estimates development and maintenance costs.
+6. **Object-Oriented Metrics Suite**: Reports DIT, NOC, WMC, CBO, RFC, and LCOM for project classes.
 
 ### Metrics Dashboard
 The `RunMetrics.java` provides an interactive menu to run different analyses:
 - Select from various metric calculations
 - View results in the console
 - Analyze the fraud detection system itself
+
+Current menu options include:
+- [1] Software Size Metrics (LOC & FP)
+- [2] Complexity (Cyclomatic)
+- [3] Transact
+- [4] TestMetrics
+- [5] ReliabilityTestMetrics
+- [6] Cost Metric
+- [7] Product Attribute
+- [8] Object-Oriented Metrics Suite (DIT, NOC, WMC, CBO, RFC, LCOM)
 
 This demonstrates practical application of software measurement theory to real code.
 
