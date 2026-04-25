@@ -6,10 +6,10 @@ import Measures.ProductAttribute;
 import Measures.ReliabilityTestMetrics;
 import Measures.SoftwareSize;
 import Measures.TestMetricsAnalyzer;
-
 import java.io.IOException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import metrics.OOMetricsSuite;
 
 public class RunMetrics {
     public static void main(String[] args) throws IOException {
@@ -26,6 +26,7 @@ public class RunMetrics {
                 System.out.println("  [5] : ReliabilityTestMetrics");
                 System.out.println("  [6] : Cost Metric");
                 System.out.println("  [7] : Product Attribute");
+                System.out.println("  [8] : Object-Oriented Metrics Suite (DIT, NOC, WMC, CBO, RFC, LCOM)");
                 System.out.println("  [0] Exit");
 
                 System.out.print("\nEnter choice: ");
@@ -53,6 +54,11 @@ public class RunMetrics {
                         break;
                     case 7:
                         runProductAttribute(scanner);
+                        break;
+                    case 8:
+                        System.out.println("\n=== OBJECT-ORIENTED METRICS SUITE ===\n");
+                        OOMetricsSuite ooSuite = new OOMetricsSuite();
+                        ooSuite.printReport();
                         break;
                     case 0:
                         System.out.println("\nGoodbye!");
