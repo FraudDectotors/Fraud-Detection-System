@@ -98,11 +98,11 @@ public class ReliabilityTestMetrics {
             // ===== PART 4: TEST COVERAGE METRICS =====
             System.out.println("--- TEST COVERAGE METRICS ---");
 
-            int totalMethods = countJavaMethods("C:\\Users\\PC\\IdeaProjects\\src");
+            int totalMethods = countJavaMethods(Paths.get("").toAbsolutePath().toString());
             int testedMethods = estimateTestedMethods();
             double methodCoverage = (double) testedMethods / totalMethods * 100;
 
-            int totalDecisionPoints = countDecisionPoints("C:\\Users\\PC\\IdeaProjects\\src");
+            int totalDecisionPoints = countDecisionPoints(Paths.get("").toAbsolutePath().toString());
             int testedDecisionPoints = estimateTestedDecisionPoints();
             double branchCoverage = (double) testedDecisionPoints / totalDecisionPoints * 100;
 
@@ -118,7 +118,7 @@ public class ReliabilityTestMetrics {
             // ===== PART 5: DEFECT METRICS =====
             System.out.println("--- DEFECT METRICS ---");
 
-            int totalLOC = countTotalLOC("C:\\Users\\PC\\IdeaProjects\\src");
+            int totalLOC = countTotalLOC(Paths.get("").toAbsolutePath().toString());
             int defectsFound = estimateDefectsFound();
             double defectDensity = (double) defectsFound / (totalLOC / 1000.0);
 
