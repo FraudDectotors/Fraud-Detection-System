@@ -32,6 +32,11 @@ public class RunMetrics {
                 System.out.print("\nEnter choice: ");
                 int choice = scanner.nextInt();
                 scanner.nextLine();
+                
+                if (choice < 0 || choice > 8) {
+                    System.out.println("Invalid choice! Please enter 0-8");
+                    continue;
+                }
 
                 switch (choice) {
                     case 1:

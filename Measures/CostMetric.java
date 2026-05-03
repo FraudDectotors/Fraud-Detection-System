@@ -6,6 +6,9 @@ public class CostMetric {
     private double resourceCost;
 
     public CostMetric(double developmentCost, double maintenanceCost, double resourceCost) {
+        if (developmentCost < 0 || maintenanceCost < 0 || resourceCost < 0) {
+            throw new IllegalArgumentException("Costs cannot be negative");
+        }
         this.developmentCost = developmentCost;
         this.maintenanceCost = maintenanceCost;
         this.resourceCost = resourceCost;

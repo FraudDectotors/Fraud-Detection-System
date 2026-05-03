@@ -28,9 +28,19 @@ public class Main {
 
         System.out.println("Enter number of transactions:");
         int dataSize = scanner.nextInt();
+        if (dataSize <= 0) {
+            System.err.println("Error: Transaction count must be > 0");
+            scanner.close();
+            return;
+        }
 
         System.out.println("Enter number of runs:");
         int numRuns = scanner.nextInt();
+        if (numRuns <= 0) {
+            System.err.println("Error: Number of runs must be > 0");
+            scanner.close();
+            return;
+        }
 
         Map<String, Object> params = new HashMap<>();
         params.put("highAmountThreshold", 1_000_000.0);
