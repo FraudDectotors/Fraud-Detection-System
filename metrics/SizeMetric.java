@@ -8,9 +8,7 @@ import java.util.stream.Stream;
 
 public class SizeMetric implements Metric<String> {
 
-    private static boolean hasPrinted = false;
-
-    private final String baseDir = "fraud";
+    private final String baseDir = ".";
 
     private int loc = 0;
     private int comments = 0;
@@ -37,17 +35,6 @@ public double measure(List<String> dummy) {
         loc = comments + code;
 
         double commentDensity = loc == 0 ? 0 : (double) comments / loc;
-// Print ONLY ONCE - first run only
-if (!hasPrinted) {
-    hasPrinted = true;// Only first time
-       System.out.println("\n--- Software Size Metrics (ONCE) ---");
-       System.out.println("LOC: " + (comments + code));
-       System.out.println("NCLOC: " + code);
-       System.out.println("CLOC: " + comments);
-       System.out.println("Comment Density: " + (loc == 0 ? 0 : (double)comments/loc));
-       System.out.println("Classes: " + classes);
-       System.out.println("Methods: " + methods);
-}
 
         return loc;
     }
