@@ -4,7 +4,7 @@ import java.nio.file.*;
 import java.util.regex.*;
 public class ComplexityAnalyzer {
         public static void main(String[] args) throws IOException {
-            String folderPath = "C:\\Users\\PC\\IdeaProjects\\src"; // source folder
+            String folderPath = Paths.get("").toAbsolutePath().toString(); // uses current working directory
 
             System.out.println("=" .repeat(60));
             System.out.println("CYCLOMATIC COMPLEXITY ANALYZER");
