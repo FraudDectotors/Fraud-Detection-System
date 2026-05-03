@@ -22,15 +22,21 @@ public class OOMetricsSuite {
                     try {
                         Class<?> c = Class.forName(name, false, Thread.currentThread().getContextClassLoader());
                         if (!c.isSynthetic()) projectClasses.add(c);
-                    } catch (ClassNotFoundException | LinkageError ignored) {}
+                    } catch (ClassNotFoundException | LinkageError e) {
+                        // Expected: not all class names found; skip silently
+                    }
                 });
-            } catch (IOException ignored) {}
-        }
+            } catch (IOException e) {
+                System.err.println("Error walking package directory: " + e.getMessage());
+            }
         projectClasses.sort((a, b) -> a.getName().compareToIgnoreCase(b.getName()));
     }
     private String source(Class<?> c) {
         try { return Files.readString(root.resolve(c.getName().replace('.', File.separatorChar) + ".java")); }
-        catch (IOException ignored) { return ""; }
+        catch (IOException e) {
+            System.err.println("Warning: Could not read source for " + c.getName() + ": " + e.getMessage());
+            return "";
+        }
     }
     public Map<String, Integer> calculateDIT() {
         Map<String, Integer> out = new LinkedHashMap<>();

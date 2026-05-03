@@ -44,7 +44,9 @@ public double measure(List<String> dummy) {
 
             }
 
-        } catch (IOException e) {}
+        } catch (IOException e) {
+            System.err.println("Error analyzing cyclomatic complexity in " + targetFile + ": " + e.getMessage());
+        }
 
         return 1 + decisions;
     }

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class NestingMetric implements Metric<String> {
 
-    private final String baseDir = "fraud/algo";
+    private final String baseDir = ".";
 
     @Override
     public String getName() {
@@ -47,7 +47,9 @@ public double measure(List<String> dummy) {
 
             }
 
-        } catch (IOException e) {}
+        } catch (IOException e) {
+            System.err.println("Error analyzing nesting depth: " + e.getMessage());
+        }
 
         return globalMaxDepth;
     }

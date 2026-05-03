@@ -43,7 +43,9 @@ public double measure(List<String> dummy) {
 
             }
 
-        } catch (IOException e) {}
+        } catch (IOException e) {
+            System.err.println("Error analyzing data structures: " + e.getMessage());
+        }
 
 if (!hasPrinted) {
     hasPrinted = true;

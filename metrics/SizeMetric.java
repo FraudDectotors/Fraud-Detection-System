@@ -32,7 +32,9 @@ public double measure(List<String> dummy) {
                 .filter(p -> p.toString().endsWith(".java"))
                 .forEach(this::analyzeFile);
 
-        } catch (IOException ignored) {}
+        } catch (IOException e) {
+            System.err.println("Error analyzing files in " + baseDir + ": " + e.getMessage());
+        }
 
         loc = comments + code;
 
@@ -74,6 +76,8 @@ if (!hasPrinted) {
 
             });
 
-        } catch (IOException ignored) {}
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+        }
     }
 }
