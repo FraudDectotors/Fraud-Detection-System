@@ -8,9 +8,7 @@ import java.util.stream.Stream;
 
 public class DataStructureMetric implements Metric<String> {
     
-private static boolean hasPrinted = false;
-
-    private final String baseDir = "fraud";
+    private final String baseDir = ".";
 
     @Override
     public String getName() {
@@ -44,13 +42,6 @@ public double measure(List<String> dummy) {
             }
 
         } catch (IOException e) {}
-
-if (!hasPrinted) {
-    hasPrinted = true;
-    System.out.println("\nData Structure Usage");
-    System.out.println("Arrays detected: " + arrays);
-}
-
 
         return arrays;
     }
